@@ -1,0 +1,14 @@
+# The humans responsible & technology colophon
+# humanstxt.org
+
+
+# Built by Sarah Higley
+
+# Thanks
+
+    H5BP - http://html5boilerplate.com/
+
+# Techonology Colophon
+
+    HTML5, CSS3, jQuery, Node
+    gulp, Modernizr, Scss

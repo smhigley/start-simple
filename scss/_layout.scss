@@ -1,0 +1,49 @@
+/* structure */
+.hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.hidden { display: none; }
+
+.tablet {
+  display: none !important;
+  @media #{$medium-down} { display: block !important; }
+}
+.mobile {
+  display: none !important;
+  @media #{$small-only} { display: block !important; }
+}
+
+.desktop {
+  @media #{$medium-down} { display: none !important; }
+}
+
+html {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: $body-font;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.row { @include grid-row(); }
+.content-row { @include grid-row($no-columns: true); }
+.nested-row { @include grid-row("nest"); }
+
+.half {
+  @include grid-column(12);
+  @media #{$small-only} { width: 100%; }
+}
+
+.third {
+  @include grid-column(8);
+  @media #{$small-only} { width: 100%; }
+}
