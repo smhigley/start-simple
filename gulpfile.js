@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     rename = require('gulp-rename'),
     size = require('gulp-size'),
+    sourcemaps = require('gulp-sourcemaps'),
     pkg = require('./package.json');
 
 var paths = {
