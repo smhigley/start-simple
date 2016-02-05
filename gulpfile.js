@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    minifyCSS = require('gulp-minify-css'),
+    cssnano = require('gulp-cssnano'),
     jshint = require('gulp-jshint'),
     rename = require('gulp-rename'),
     size = require('gulp-size'),
@@ -23,16 +23,17 @@ gulp.task('styles', ['components'], function () {
     .pipe(rename('app.css'))
     .pipe(gulp.dest('./css/'))
     .pipe(rename('app.min.css'))
-    .pipe(minifyCSS())
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.init())
+    .pipe(cssnano())
+    .pipe(sourcemaps.write('.'))
     .pipe(size())
     .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('components', function() {
-  return gulp.src(['./bower_components/normalize.css/normalize.css'])
+  return gulp.src(['./components/normalize.css/normalize.css'])
   .pipe(rename('_normalize.scss'))
-  .pipe(gulp.dest('./bower_components/normalize.css/'));
+  .pipe(gulp.dest('./components/normalize.css/'));
 });
 
 gulp.task('scripts', ['lint'], function() {
