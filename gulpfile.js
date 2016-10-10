@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    cssnano = require('gulp-cssnano'),
+    cleanCSS = require('gulp-clean-css'),
     jshint = require('gulp-jshint'),
     rename = require('gulp-rename'),
     size = require('gulp-size'),
@@ -24,7 +24,7 @@ gulp.task('styles', ['components'], function () {
     .pipe(gulp.dest('./css/'))
     .pipe(rename('app.min.css'))
     .pipe(sourcemaps.init())
-    .pipe(cssnano())
+    .pipe(cleanCSS())
     .pipe(sourcemaps.write('.'))
     .pipe(size())
     .pipe(gulp.dest('./css/'));
